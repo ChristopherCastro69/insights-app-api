@@ -97,4 +97,11 @@ public class AuthenticationService {
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }
+    public void deleteUserById(Integer userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+        } else {
+            throw new IllegalArgumentException("User with ID " + userId + " does not exist");
+        }
+    }
 }

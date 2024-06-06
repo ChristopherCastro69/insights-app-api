@@ -51,4 +51,14 @@ public class AuthenticationController {
         authenticationService.deleteAllUsers();
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/delete/users/{id}")
+    public ResponseEntity<Void> deleteUserById(@PathVariable Integer id) {
+        try {
+            authenticationService.deleteUserById(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
