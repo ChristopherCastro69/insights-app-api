@@ -38,7 +38,7 @@ public class BlogController {
     private ImageServiceImpl imageServiceImpl;
 
     @GetMapping("/test")
-    public ResponseEntity<String> getBlog() {
+    public ResponseEntity<String> getAllPosts() {
         return ResponseEntity.ok("Blog content");
     }
 
