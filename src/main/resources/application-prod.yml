@@ -8,10 +8,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: blog
 
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
-  jmx:
-    server:
-      port: ${PORT:8080}
 
   #test
   cloudinary:
