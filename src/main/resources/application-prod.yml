@@ -14,8 +14,9 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
   jmx:
     server:
-      port=${PORT:8080}:
-#test
+      port: ${PORT:8080}
+
+  #test
   cloudinary:
     cloud-name: ${CLOUDINARY_CLOUD_NAME}
     api-key: ${CLOUDINARY_API_KEY}
