@@ -37,6 +37,11 @@ public class BlogController {
     @Autowired
     private ImageServiceImpl imageServiceImpl;
 
+    @GetMapping("/test")
+    public ResponseEntity<String> getBlog() {
+        return ResponseEntity.ok("Blog content");
+    }
+
     @GetMapping("/all")
     public ResponseEntity<Page<BlogResponseDTO>> getAllPosts(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "") String query) {
         Page<BlogResponseDTO> postPage = blogService.getAllPosts(page, query);
