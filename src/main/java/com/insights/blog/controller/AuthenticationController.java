@@ -1,6 +1,7 @@
 package com.insights.blog.controller;
 
 import com.insights.blog.exception.UserAlreadyExistsException;
+import com.insights.blog.model.User;
 import com.insights.blog.payload.LoginRequestDTO;
 import com.insights.blog.payload.AuthenticationResponseDTO;
 import com.insights.blog.payload.RegisterRequestDTO;
@@ -10,10 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -38,5 +38,17 @@ public class AuthenticationController {
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponseDTO> authenticateRequest(@RequestBody LoginRequestDTO loginRequestDTO) {
         return ResponseEntity.ok(authenticationService.authenticate(loginRequestDTO));
+    }
+
+    @GetMapping("/users/all")
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = authenticationService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
+    @DeleteMapping("/users/all")
+    public ResponseEntity<Void> deleteAllUsers() {
+        authenticationService.deleteAllUsers();
+        return ResponseEntity.noContent().build();
     }
 }
