@@ -57,7 +57,7 @@ public class BlogController {
     }
 
     @PostMapping("/create/blog")
-    @PreAuthorize("hasRole('USER')")
+//    @PreAuthorize("hasRole('USER')")
     public BlogResponseDTO createBlog(
             @RequestPart("blog") BlogRequestDTO blogRequestDTO,
             @CurrentUser User currentUser,
