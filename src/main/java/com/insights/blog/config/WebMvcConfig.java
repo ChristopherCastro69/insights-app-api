@@ -10,7 +10,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Adjust this path according to your API endpoints
-                .allowedOrigins("http://localhost:5173", "http://localhost:8080", "http://localhost:5174", "https://insights-blog-bfc323e03dc8.herokuapp.com", "https://insights-blog-bfc323e03dc8.herokuapp.com/") // Allow requests from this origin
+                .allowedOrigins("*") // Allow requests from this origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Allow these HTTP methods
                 .allowedHeaders("*")
                 .exposedHeaders("Authorization"); // Expose Authorization header to client
