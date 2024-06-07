@@ -40,11 +40,6 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.authenticate(loginRequestDTO));
     }
 
-    @GetMapping("/users/all")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = authenticationService.getAllUsers();
-        return ResponseEntity.ok(users);
-    }
 
     @DeleteMapping("/users/all")
     public ResponseEntity<Void> deleteAllUsers() {
